@@ -1,0 +1,43 @@
+{% load static %}
+
+<div class="col-lg-4 col-sm-6 col-xs-12">
+
+    <div class="single_course">
+
+        <div class="single_c_img">
+            <img src="{{ product.image.url }}"
+                 class="img-fluid"
+                 alt="{{ product.title }}">
+
+            <span>{{ product.category }}</span>
+        </div>
+
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+
+        <h4>
+            <a href="{{ product.get_absolute_url }}">
+                {{ product.title }}
+            </a>
+        </h4>
+
+        <p>
+            <span class="ti-book"></span>
+            {{ product.talk }} جلسه
+        </p>
+
+        <p>
+            <span class="ti-alarm-clock"></span>
+            {{ product.tool_dore }}
+        </p>
+
+        <div class="price">
+            {{ product.price }} تومان
+        </div>
+<a href="#0" class="custom-button theme-one" onclick="addProductToOrder({{ product.id }})">اکنون ثبت نام کنید<i class="fa fa-angle-right"></i></a>
+    </div>
+
+</div>

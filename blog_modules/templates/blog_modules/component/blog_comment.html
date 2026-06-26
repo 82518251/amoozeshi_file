@@ -1,0 +1,86 @@
+{% for comment in comments %}
+
+    <div class="comment-box">
+
+        <h4 class="comment-name">
+            {{ comment.name }}
+        </h4>
+
+        <p class="comment-text">
+            {{ comment.text }}
+        </p>
+
+        {% if comment.description %}
+            <p class="comment-description">
+                {{ comment.description }}
+            </p>
+        {% endif %}
+
+        {% if comment.image %}
+            <div class="comment-image">
+                <img src="{{ comment.image.url }}" alt="comment image" width="120">
+            </div>
+        {% endif %}
+
+        <span class="comment-date">
+            {{ comment.create_date }}
+        </span>
+
+    </div>
+
+{% empty %}
+
+    <p class="no-comments">
+        هنوز نظری ثبت نشده
+    </p>
+
+{% endfor %}
+
+
+<div class="comment_form">
+
+    <h3 class="blog_head_title">
+        یک نظر اضافه کنید
+    </h3>
+
+    <div class="contact comment-box">
+
+        <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <div class="row">
+
+                <div class="form-group col-md-6">
+                    {{ comments_form.name }}
+                    {{ comments_form.name.errors }}
+                </div>
+
+                <div class="form-group col-md-6">
+                    {{ comments_form.email }}
+                    {{ comments_form.email.errors }}
+                </div>
+
+                <div class="form-group col-md-12">
+                    {{ comments_form.text }}
+                    {{ comments_form.text.errors }}
+                </div>
+
+                <div class="form-group col-md-12">
+                    {{ comments_form.description }}
+                    {{ comments_form.description.errors }}
+                </div>
+
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn_one">
+                        ثبت کردن نظر
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

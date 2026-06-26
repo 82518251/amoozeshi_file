@@ -1,0 +1,106 @@
+{% load static %}
+
+<div class="footer section-padding"><div class="container"><div class="row">
+<div class="col-lg-3 col-sm-6 col-xs-12"><div class="single_footer">
+<a href="index.html">
+    <img src="{{ site_setting.site_logo.url }}" alt=""></a>
+    <p>{{ site_setting.about_us_text }}</p>
+<div class="social_profile"><ul>
+<li><a href="#" class="f_facebook"><i class="ti-facebook" title="Facebook"></i></a></li>
+<li><a href="#" class="f_twitter"><i class="ti-twitter" title="Twitter"></i></a></li>
+<li><a href="#" class="f_instagram"><i class="ti-instagram" title="Instagram"></i></a></li>
+<li><a href="#" class="f_linkedin"><i class="ti-linkedin" title="LinkedIn"></i></a></li>
+</ul></div>
+</div></div>
+{% for footer_box in footer_link_boxes %}
+
+<div class="col-lg-2 col-sm-6 col-xs-12">
+
+
+<div class="single_footer">
+
+    <h4>{{ footer_box.title }}</h4>
+
+    <ul>
+
+        {% for link in footer_box.footerlink_set.all %}
+
+            <li>
+                <a href="{{ link.url }}">
+                    {{ link.title }}
+                </a>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+
+</div>
+
+{% endfor %}
+
+<div class="col-lg-2 col-sm-6 col-xs-12">
+
+
+<div class="single_footer">
+
+    <h4>اطلاعات تماس</h4>
+
+    <div class="sf_contact">
+        <span class="ti-map"></span>
+
+        <p>
+            {{ site_setting.address }}
+        </p>
+    </div>
+
+    <div class="sf_contact">
+        <span class="ti-mobile"></span>
+
+        <p>
+            {{ site_setting.phone }}
+        </p>
+    </div>
+
+    <div class="sf_contact">
+        <span class="ti-email"></span>
+
+        <p>
+            {{ site_setting.email }}
+        </p>
+    </div>
+
+</div>
+
+
+</div>
+
+<div class="col-lg-1 col-sm-6 col-xs-12">
+
+
+<div class="single_footer">
+
+    <h4>دانلود برنامه</h4>
+
+    <p>
+        برنامه ما را از فروشگاه برنامه و فروشگاه گوگل پلی دانلود کنید.
+    </p>
+
+    <a href="#">
+        <img src="{% static 'assets/img/google-play.jpg' %}" class="foot_img" alt="">
+    </a>
+
+    <a href="#">
+        <img src="{% static 'assets/img/app-store.jpg' %}" class="foot_img" alt="">
+    </a>
+
+</div>
+
+
+</div>
+
+</div></div></div>
+<div class="foot_copy"><div class="footer_copyright"><p>© 2024. All Rights Reserved.</p></div></div>

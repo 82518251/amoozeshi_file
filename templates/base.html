@@ -1,0 +1,23 @@
+{% load static %}
+{% load render_partial %}
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+
+    {% block page_title %}
+
+    {% endblock %}
+</title>
+{% include 'header_page.html' %}
+</head>
+<body data-spy="scroll" data-offset="80">
+{% render_partial 'index_modules.views.site_header' %}
+
+{% block page_content %}
+
+{% endblock %}
+
+{% render_partial 'index_modules.views.site_footer' %}
+{% include 'footer_page.html' %}
+</body>
+</html>

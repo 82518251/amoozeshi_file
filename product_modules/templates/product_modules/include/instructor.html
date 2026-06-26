@@ -1,0 +1,21 @@
+
+
+<div class="tab-pane fade" id="instructor">
+    {% if  product.instructor  %}
+    <div class="overview text-center">
+<div class="instructor-item">
+<div class="instructor-thumb"><a href="#0"><img src="{{ product.instructor.image.url }}" alt="instructor"></a></div>
+<div class="instructor-content">
+<h6 class="title"><a href="#0">{{ product.instructor.full_name }}</a></h6>
+<span class="details">{{ product.instructor.position }}</span>
+</div>
+</div>
+<p> {{ product.instructor.description }} </p>
+<div class="details-buttons-area"><ul class="social-icons justify-content-center w-100">
+<li><a href="#0"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#0" class="active"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#0"><i class="fa fa-instagram"></i></a></li>
+</ul></div>
+</div>
+{% endif %}
+</div>

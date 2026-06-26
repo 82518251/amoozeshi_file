@@ -1,0 +1,42 @@
+{% load static %}
+
+<div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp"
+     data-wow-duration="1s"
+     data-wow-delay="0.1s"
+     data-wow-offset="0">
+
+    <div class="single_blog">
+
+        <img src="{{ article.image.url }}"
+             class="img-fluid"
+             alt="{{ article.title }}">
+
+        <div class="content_box">
+
+         <span>
+    {{ article.create_date|date:"d F Y" }}
+
+
+
+    {% for cat in article.selected_categoris.all %}
+        <a href="{{ cat.get_absolute_url }}">
+            {{ cat.name }}
+        </a>
+        {% if not forloop.last %} | {% endif %}
+    {% endfor %}
+</span>
+
+            <h2>
+                <a href="{{ article.get_absolute_url }}">
+                    {{ article.title }}
+                </a>
+            </h2>
+
+            <a class="btn_one" href="{{ article.get_absolute_url }}">
+                ادامه مطلب
+                <i class="ti-arrow-top-left"></i>
+            </a>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+
+{% endblock %}
+
+{% block page_content %}
+
+     <html lang="en" dir="rtl">
+
+<!-- RTL by sitroweb.com/sites/eduall/demo-rtl/sign-up.html by Sitroweb team, Wed, 04 Jun 2025 13:27:41 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title> اجوآل – قالب HTML برای آموزش آنلاین، مدرسین، LMS و دوره‌های آموزشی </title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'account/images/logo/favicon.png' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'account/css/bootstrap.min.css' %}">
+    <!-- select2 -->
+    <link rel="stylesheet" href="{% static 'account/css/select2.min.css' %}">
+    <!-- Slick -->
+    <link rel="stylesheet" href="{% static 'account/css/slick.css' %}">
+    <!-- Slick -->
+    <link rel="stylesheet" href="{% static 'account/css/magnific-popup.css' %}">
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="{% static 'account/css/jquery-ui.css' %}">
+    <!-- plyr Css -->
+    <link rel="stylesheet" href="{% static 'account/css/plyr.css' %}">
+    <!-- Editor js Toolbar Start -->
+    <link rel="stylesheet" href="{% static 'account/css/editor-quill.css' %}">
+    <!-- animate -->
+    <link rel="stylesheet" href="{% static 'account/css/animate.css' %}">
+    <!-- dataTables.dataTables -->
+    <link rel="stylesheet" href="{% static 'account/css/dataTables.dataTables.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'account/css/aos.css' %}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'account/css/main.css' %}">
+</head>
+<body>
+
+<!-- ==================== Header End Here ==================== -->
+
+    <!-- ==================== Breadcrumb Start Here ==================== -->
+<section class="breadcrumb py-120 bg-main-25 position-relative z-1 overflow-hidden mb-0">
+    <img src="{% static 'account/images/shapes/shape1.png' %}" alt="" class="shape one animation-rotation d-md-block d-none">
+    <img src="{% static 'account/images/shapes/shape2.png' %}" alt="" class="shape two animation-scalation d-md-block d-none">
+    <img src="{% static 'account/images/shapes/shape3.png' %}" alt="" class="shape eight animation-walking d-md-block d-none">
+    <img src="{% static 'account/images/shapes/shape5.png' %}" alt="" class="shape six animation-walking d-md-block d-none">
+    <img src="{% static 'account/images/shapes/shape4.png' %}" alt="" class="shape four animation-scalation">
+    <img src="{% static 'account/images/shapes/shape4.png' %}" alt="" class="shape nine animation-scalation">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb__wrapper">
+                    <h1 class="breadcrumb__title display-4 fw-semibold text-center"> ثبت نام</h1>
+                    <ul class="breadcrumb__list d-flex align-items-center justify-content-center gap-4">
+                        <li class="breadcrumb__item">
+                            <a href="index.html" class="breadcrumb__link text-neutral-500 hover-text-main-600 fw-medium">
+                                <i class="text-lg d-inline-flex ph-bold ph-house"></i> خانه</a>
+                         </li>
+                        <li class="breadcrumb__item">
+                            <i class="text-neutral-500 d-flex ph-bold ph-caret-right"></i>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="course.html" class="breadcrumb__link text-neutral-500 hover-text-main-600 fw-medium"> </a>
+                        </li>
+                        <li class="breadcrumb__item d-none">
+                            <i class="text-neutral-500 d-flex ph-bold ph-caret-right"></i>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <span class="text-main-two-600"> ثبت نام </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ==================== Breadcrumb End Here ==================== -->
+
+    <!-- ============================== Tutor Details Section Start ============================== -->
+    <div class="account py-120 position-relative">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-lg-6">
+                    <div class="bg-main-25 border border-neutral-30 rounded-8 p-32">
+                        <div class="mb-40">
+                            <h3 class="mb-16 text-neutral-500">بزن بریم ...</h3>
+                            <p class="text-neutral-500">لطفاً برای شروع برنامه آنلاین ، آدرس ایمیل خود را وارد کنید</p>
+                        </div>
+                        <form  method="post">
+                            {% csrf_token %}
+                            <div class="row gy-4">
+
+                                <div class="col-sm-12">
+                                    <label for="email" class="fw-medium text-lg text-neutral-500 mb-16">ایمیل خود را وارد کنید</label>
+{#                                    <input type="email" class="common-input rounded-pill" id="email" placeholder="ایمیل خود را وارد کنید...">#}
+                                    {{ register_form.email }}
+                                    {{ register_form.email.errors }}
+
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="password" class="fw-medium text-lg text-neutral-500 mb-16">گذرواژه</label>
+                                    <div class="position-relative">
+{#                                        <input type="password" class="common-input rounded-pill pe-44" id="password" placeholder="گذرواژه را وارد کنید...">#}
+{#                                        <span class="toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y ph-bold ph-eye-closed" id="#password"></span>#}
+                                   {{ register_form.password }}
+                                   {{ register_form.password.errors }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+    <label class="fw-medium text-lg text-neutral-500 mb-16">
+        تکرار رمز عبور
+    </label>
+
+    {{ register_form.confirm_password }}
+    {{ register_form.confirm_password.errors }}
+</div>
+                                <div class="col-sm-12">
+                                    <p class="text-neutral-500 mt-8">حساب کاربری دارید؟
+                                        <a href="{% url 'register_page' %}" class="fw-semibold text-main-600 hover-text-decoration-underline">ورود</a>
+                                    </p>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="mt-20">
+                                        <button type="submit" class="btn btn-main rounded-pill flex-center gap-8">
+                                            ثبت نام
+                                            <i class="ph-bold ph-arrow-up-right d-flex text-lg"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-lg-block d-none">
+                    <div class="account-img">
+                        <img src="{% static 'account/images/thumbs/account-img.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================== Tutor Details Section End ============================== -->
+  <script src="{% static 'account/js/jquery-3.7.1.min.js' %}"></script>
+    <!-- Bootstrap Bundle Js -->
+    <script src="{% static 'account/js/boostrap.bundle.min.js' %}"></script>
+    <!-- select2 Js -->
+    <script src="{% static 'account/js/select2.min.js' %}"></script>
+    <!-- Phosphor Icon Js -->
+    <script src="{% static 'account/js/phosphor-icon.js' %}"></script>
+    <!-- Slick js -->
+    <script src="{% static 'account/js/slick.min.js' %}"></script>
+    <!-- Slick js -->
+    <script src="{% static 'account/js/counter.min.js' %}"></script>
+    <!-- magnific popup -->
+    <script src="{% static 'account/js/magnific-popup.min.js' %}"></script>
+    <!-- Jquery Ui js -->
+    <script src="{% static 'account/js/jquery-ui.js' %}"></script>
+    <!-- marquee js -->
+    <script src="{% static 'account/js/marquee.min.js' %}"></script>
+    <!-- react charts-->
+     <script src="{% static 'account/js/apexcharts.js' %}"></script>
+    <!-- plyr Js -->
+    <script src="{% static 'account/js/plyr.js' %}"></script>
+    <!-- vanilla Tilt -->
+    <!-- Editor js Toolbar Start -->
+    <script src="{% static 'account/js/editor-quill.js' %}"></script>
+    <!-- dataTables -->
+    <script src="{% static 'account/js/dataTables.min.js' %}"></script>
+    <!-- Tilt -->
+    <script src="{% static 'account/js/vanilla-tilt.min.js' %}"></script>
+    <!-- wow -->
+    <script src="{% static 'account/js/wow.min.js' %}"></script>
+
+    <script src="{% static 'account/js/aos.js' %}"></script>
+
+    <!-- main js -->
+    <script src="{% static 'account/js/main.js' %}"></script>
+
+
+
+
+
+
+    </body>
+
+<!-- RTL by sitroweb.com/sites/eduall/demo-rtl/sign-up.html by Sitroweb team, Wed, 04 Jun 2025 13:27:41 GMT -->
+</html>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+
+<div class="tab-pane fade" id="reviews">
+    <div class="client-review">
+
+        <div class="review-comments">
+            <h6 class="review-title">
+                نظرات ({{ comments.count }})
+            </h6>
+
+            <ul class="review-contents">
+
+                {% for comment in comments %}
+                <li>
+                    <div class="thumb">
+                         {% if comment.image %}
+        <img src="{{ comment.image.url }}" alt="course">
+    {% endif %}
+                    </div>
+
+                    <div class="cont">
+                        <h6 class="subtitle">{{ comment.name }}</h6>
+
+                        <div class="ratings cl-theme">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= comment.rating %}
+                                    <span><i class="fa fa-star"></i></span>
+                                {% else %}
+                                    <span class="cl-theme-light"><i class="fa fa-star"></i></span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <p>{{ comment.text }}</p>
+                    </div>
+                </li>
+
+                {% empty %}
+                <li>
+                    <p>هنوز نظری ثبت نشده است</p>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+
+        <!-- فرم ثبت نظر -->
+        <div class="review-form">
+            <h6 class="review-title">یک  اضافه کنید</h6>
+
+            <form method="post"  enctype="multipart/form-data" class="row client-form align-items-center">
+                {% csrf_token %}
+
+                <div class="col-md-4 col-12">
+                    {{ form.name }}
+                </div>
+
+                <div class="col-md-4 col-12">
+                    {{ form.email }}
+                </div>
+
+                <div class="col-md-4 col-12">
+                    {{ form.rating }}
+                </div>
+
+                <div class="col-md-12 col-12 d-inline-flex">
+                    {{ form.text }}
+                </div>
+                      <div class="col-md-12 col-12 d-inline-flex">
+                    {{ form.image }}
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="custom-button rounded">
+                        ارسال بررسی
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+

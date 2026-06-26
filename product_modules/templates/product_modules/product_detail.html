@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+
+{% endblock %}
+{% block page_content %}
+
+    <section class="section-top"><div class="container"><div class="col-lg-10 offset-lg-1 text-center"><div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+<h1>جزئیات دوره</h1>
+<ul>
+<li><a href="{% url 'home_page' %}">صفحه اصلی</a></li>
+<li>/ جزئیات دروس</li>
+</ul>
+</div></div></div></section><section class="our_event section-padding"><div class="container"><div class="row">
+<div class="col-lg-8 col-sm-8 col-xs-12">
+<div class="single_event_single">
+<img alt="{{ product.title }}" class="img-fluid" src="{{ product.image.url }}"><div class="single_event_text_single">
+<h4></h4>
+<span><i class="fa fa-calendar"></i>10 اکتبر 2024</span><span><i class="fa fa-clock-o"></i>{{ product.tool_dore }} </span><span><i class="fa fa-table"></i><strong>30 صندلی موجود</strong></span>
+<p>{{ product.short_description }}</p>
+    <p>{{ product.description }}</p>
+</div>
+</div>
+<div class="course-details-content section-bg">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item"><a href="#overview" class="nav-link active" data-bs-toggle="tab">بررسی اجمالی</a></li>
+<li><a href="#curriculum" class="nav-link" data-bs-toggle="tab">برنامه تحصیلی</a></li>
+<li class="nav-item"><a href="#instructor" class="nav-link" data-bs-toggle="tab">مربی</a></li>
+<li class="nav-item"><a href="#reviews" class="nav-link" data-bs-toggle="tab">بررسی ها</a></li>
+</ul>
+<div class="tab-content" id="myTabContent">
+<div class="tab-pane show fade active" id="overview"><div class="overview">
+
+<p>{{ product.overview }}</p>
+<div class="details-buttons-area">
+<a href="#0" class="custom-button theme-one">اکنون ثبت نام کنید<i class="fa fa-angle-right"></i></a><a href="#0" class="custom-button bg-white">عضویت دریافت کنید</a><ul class="social-icons">
+<li><a href="#0" class="active"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#0"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#0"><i class="fa fa-instagram"></i></a></li>
+</ul>
+</div>
+</div></div>
+<div class="tab-pane fade" role="tabpanel" id="curriculum"><div class="overview">
+<p>{{ product.StudyPlan }}</p>
+<div class="details-buttons-area">
+<a href="#0" class="custom-button theme-one">اکنون ثبت نام کنید<i class="fa fa-angle-right"></i></a><a href="#0" class="custom-button bg-white">عضویت دریافت کنید</a><ul class="social-icons">
+<li><a href="#0"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#0"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#0"><i class="fa fa-instagram"></i></a></li>
+</ul>
+</div>
+</div></div>
+{% if product.instructor %}
+    {% include "product_modules/include/instructor.html" %}
+{% endif %}
+ {% include 'product_modules/include/product_comment.html' %}
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-sm-4 col-xs-12">
+<div class="course_features">
+<h3>ویژگی های دوره</h3>
+<ul>
+<li>
+<i class="fa fa-calendar"></i>طول دوره<b> {{ product.tool_dore }}</b>
+</li>
+<li>
+<i class="fa fa-user"></i>کل سخنرانی ها<b>{{ product.talk }}</b>
+</li>
+<li>
+<i class="fa fa-user"></i>کل دانش آموزان<b>{{ product.student }}</b>
+</li>
+<li>
+<i class="fa fa-trophy"></i>گواهینامه<b>{{ product.madrak }}</b>
+</li>
+</ul>
+</div>
+<div class="event_info_price"><h4>قیمت - {{ product.price }} تومان</h4></div>
+<div class="event_info_register"><a class="btn_one" href="javascript:void(0)" onclick="addProductToOrder({{ product.id }}); return false;">امروز ثبت نام کنید</a>
+<script>
+
+function addProductToOrder(productId) {
+
+    alert(productId);
+
+}
+
+</script></div>
+<div class="related_course">
+<h3>دوره مرتبط</h3>
+    {% for rc in related_products %}
+<div class="single_rc">
+<div class="rc_img">
+    <img src="{{ rc.image.url }}" alt="{{ rc.title }}"></div>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <h4><a href="{{ rc.get_absolute_url }}">{{ rc.title }}</a></h4>
+<span>{{ rc.price }}</span>
+</div>
+    {% endfor %}
+</div>
+<div class="sidebar-post">
+<div class="sidebar_title"><h4>دسته بندی ها</h4></div>
+<div class="single_category">
+    <ul>
+
+            {% for category in categories %}
+            <li>
+                <a href="#">
+                    {{ category.title }}
+
+                    <sup>
+                        {{ category.post_set.count }}
+                    </sup>
+                </a>
+            </li>
+            {% endfor %}
+</ul></div>
+</div>
+<div class="sidebar-post">
+<div class="sidebar_title"><h4>ما را دنبال کنید</h4></div>
+<div class="single_social"><ul>
+<li><div class="social_item b_facebook"><a href="#" title="facebook"><i class="fa fa-facebook"></i><span class="item-list">150 هزار لایک</span></a></div></li>
+<li><div class="social_item b_twitter"><a href="#" title="twitter"><i class="fa fa-twitter"></i><span class="item-list">138 هزار دنبال کننده</span></a></div></li>
+<li><div class="social_item b_youtube"><a href="#" title="youtube"><i class="fa fa-youtube"></i><span class="item-list">90 هزار مشترک</span></a></div></li>
+<li><div class="social_item b_pinterest"><a href="#" title="pinterest"><i class="fa fa-pinterest"></i><span class="item-list">350 هزار دنبال کننده</span></a></div></li>
+<li><div class="social_item b_tumblr"><a href="#" title="rss"><i class="fa fa-tumblr"></i><span class="item-list">901 فالوور</span></a></div></li>
+<li><div class="social_item b_rss"><a href="#" title="rss"><i class="fa fa-rss"></i><span class="item-list">411 فالوور</span></a></div></li>
+</ul></div>
+</div>
+</div>
+</div></div></section>
+{% endblock %}

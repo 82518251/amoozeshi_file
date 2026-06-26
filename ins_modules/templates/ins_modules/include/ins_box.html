@@ -1,0 +1,22 @@
+
+{% load static %}
+
+
+    <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0"><div class="our-team">
+<div class="team-content">
+<a href="{% url 'teacher_detail' teacher.slug %}"><img src="{{ teacher.image.url }}" alt="{{ teacher.name }}"></a>
+    <ul class="social-links">
+<li><a href="#" class="ti-twitter"></a></li>
+<li><a href="#" class="ti-linkedin"></a></li>
+<li><a href="#" class="ti-facebook"></a></li>
+</ul>
+</div>
+
+<div class="team-prof">
+<h3> {{ teacher.title }}</h3>
+<span>{{ teacher.name }} </span>
+</div>
+<div class="sth_det2">
+<span class="ti-file"><u>{{ teacher.courses_count }}دوره</u></span><span class="ti-user"><u>{{ teacher.students_count }}کاراموز </u></span>
+</div>
+</div></div>
